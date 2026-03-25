@@ -1,0 +1,1767 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2026-03-25T05:55:24.419Z  INFO 63494 --- [racs-backend] [           main] com.racs.RacsApplication                 : Starting RacsApplication v1.0.0 using Java 21.0.10 with PID 63494 (/home/almissi/Documents/Stage WURI/Projet Stage/18-02-2026/New/racs-backend/target/racs-backend-1.0.0.jar started by almissi in /home/almissi/Documents/Stage WURI/Projet Stage/18-02-2026/New/racs-backend)
+2026-03-25T05:55:24.420Z DEBUG 63494 --- [racs-backend] [           main] com.racs.RacsApplication                 : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-03-25T05:55:24.421Z  INFO 63494 --- [racs-backend] [           main] com.racs.RacsApplication                 : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T05:55:25.122Z  INFO 63494 --- [racs-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-25T05:55:25.189Z  INFO 63494 --- [racs-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 13 JPA repository interfaces.
+2026-03-25T05:55:25.551Z  INFO 63494 --- [racs-backend] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-25T05:55:25.557Z  INFO 63494 --- [racs-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-25T05:55:25.558Z  INFO 63494 --- [racs-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-03-25T05:55:25.580Z  INFO 63494 --- [racs-backend] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-25T05:55:25.581Z  INFO 63494 --- [racs-backend] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1096 ms
+2026-03-25T05:55:25.668Z  INFO 63494 --- [racs-backend] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-25T05:55:25.716Z  INFO 63494 --- [racs-backend] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-03-25T05:55:25.744Z  INFO 63494 --- [racs-backend] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-25T05:55:25.881Z  INFO 63494 --- [racs-backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-25T05:55:25.896Z  INFO 63494 --- [racs-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-25T05:55:26.122Z  INFO 63494 --- [racs-backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@67dc6b48
+2026-03-25T05:55:26.123Z  INFO 63494 --- [racs-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-25T05:55:26.141Z  WARN 63494 --- [racs-backend] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-25T05:55:26.949Z  INFO 63494 --- [racs-backend] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-25T05:55:27.059Z  INFO 63494 --- [racs-backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-25T05:55:27.280Z DEBUG 63494 --- [racs-backend] [           main] c.racs.config.JwtAuthenticationFilter    : Filter 'jwtAuthenticationFilter' configured for use
+2026-03-25T05:55:27.454Z  INFO 63494 --- [racs-backend] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-25T05:55:27.990Z  WARN 63494 --- [racs-backend] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-25T05:55:28.118Z  INFO 63494 --- [racs-backend] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1e33203f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58a01e47, org.springframework.security.web.context.SecurityContextHolderFilter@6aca85da, org.springframework.security.web.header.HeaderWriterFilter@3bd69a51, org.springframework.web.filter.CorsFilter@6149184e, org.springframework.security.web.authentication.logout.LogoutFilter@3341ba8e, com.racs.config.JwtAuthenticationFilter@52518ee1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d123972, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4567dcbc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f3a8d5e, org.springframework.security.web.session.SessionManagementFilter@5ca4763f, org.springframework.security.web.access.ExceptionTranslationFilter@7a36c310, org.springframework.security.web.access.intercept.AuthorizationFilter@5c1348c6]
+2026-03-25T05:55:28.329Z  INFO 63494 --- [racs-backend] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-03-25T05:55:28.336Z  INFO 63494 --- [racs-backend] [           main] com.racs.RacsApplication                 : Started RacsApplication in 4.21 seconds (process running for 4.512)
+2026-03-25T05:55:28.379Z DEBUG 63494 --- [racs-backend] [           main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        roles r1_0
+2026-03-25T05:55:28.412Z DEBUG 63494 --- [racs-backend] [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+2026-03-25T05:55:28.417Z DEBUG 63494 --- [racs-backend] [           main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        sources s1_0
+2026-03-25T05:55:38.867Z  INFO 63494 --- [racs-backend] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-25T05:55:38.868Z  INFO 63494 --- [racs-backend] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-25T05:55:38.868Z  INFO 63494 --- [racs-backend] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-03-25T05:55:38.878Z  WARN 63494 --- [racs-backend] [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/api/auth/login' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-03-25T05:55:39.008Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T05:55:39.019Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T05:57:00.846Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T05:57:00.849Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T05:57:11.349Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T05:57:11.351Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T05:58:15.857Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T05:58:15.859Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T06:00:21.571Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T06:00:21.573Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T06:02:17.788Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T06:02:17.789Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T06:03:11.694Z  INFO 63494 --- [racs-backend] [nio-8080-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 352 ms
+2026-03-25T06:03:31.025Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T06:03:31.026Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T06:07:01.201Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T06:07:01.202Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T06:07:01.595Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T06:07:01.595Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T06:07:01.595Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T06:07:01.597Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T06:07:01.598Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T06:07:01.598Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T06:07:01.607Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0
+2026-03-25T06:07:01.607Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.attribut,
+        a1_0.contexte,
+        a1_0.date_generation,
+        a1_0.date_traitement,
+        a1_0.fid,
+        a1_0.lot_id,
+        a1_0.message,
+        a1_0.niveau,
+        a1_0.traitee,
+        a1_0.type,
+        a1_0.valeur_apres,
+        a1_0.valeur_avant,
+        a1_0.validation_id,
+        a1_0.variation 
+    from
+        alertes a1_0 
+    where
+        not(a1_0.traitee)
+2026-03-25T06:07:01.619Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T06:07:01.620Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T06:07:01.624Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0
+2026-03-25T06:07:01.626Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        l1_0.id,
+        l1_0.date_envoi,
+        l1_0.date_fin,
+        l1_0.reference_lot,
+        l1_0.source_id,
+        l1_0.statut,
+        l1_0.taille 
+    from
+        lots l1_0 
+    where
+        l1_0.id=?
+2026-03-25T06:07:01.637Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        db1_0.lot_id,
+        db1_0.id,
+        db1_0.date_reception,
+        db1_0.fid,
+        db1_0.hash,
+        db1_0.payload,
+        db1_0.statut 
+    from
+        donnees_brutes db1_0 
+    where
+        db1_0.lot_id=?
+2026-03-25T06:07:01.642Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        v1_0.id,
+        v1_0.champs_obligatoires_valides,
+        v1_0.date_validation,
+        v1_0.donnees_brutes_id,
+        v1_0.format_valide,
+        v1_0.rapport 
+    from
+        validations v1_0 
+    where
+        v1_0.donnees_brutes_id=?
+2026-03-25T06:07:01.645Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        v1_0.id,
+        v1_0.champs_obligatoires_valides,
+        v1_0.date_validation,
+        v1_0.donnees_brutes_id,
+        v1_0.format_valide,
+        v1_0.rapport 
+    from
+        validations v1_0 
+    where
+        v1_0.donnees_brutes_id=?
+2026-03-25T06:07:01.647Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        v1_0.id,
+        v1_0.champs_obligatoires_valides,
+        v1_0.date_validation,
+        v1_0.donnees_brutes_id,
+        v1_0.format_valide,
+        v1_0.rapport 
+    from
+        validations v1_0 
+    where
+        v1_0.donnees_brutes_id=?
+2026-03-25T06:07:01.649Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        v1_0.id,
+        v1_0.champs_obligatoires_valides,
+        v1_0.date_validation,
+        v1_0.donnees_brutes_id,
+        v1_0.format_valide,
+        v1_0.rapport 
+    from
+        validations v1_0 
+    where
+        v1_0.donnees_brutes_id=?
+2026-03-25T06:07:01.651Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        v1_0.id,
+        v1_0.champs_obligatoires_valides,
+        v1_0.date_validation,
+        v1_0.donnees_brutes_id,
+        v1_0.format_valide,
+        v1_0.rapport 
+    from
+        validations v1_0 
+    where
+        v1_0.donnees_brutes_id=?
+2026-03-25T06:07:01.654Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ev1_0.validation_id,
+        ev1_0.id,
+        ev1_0.champ,
+        ev1_0.code_erreur,
+        ev1_0.message,
+        ev1_0.niveau 
+    from
+        erreurs_validation ev1_0 
+    where
+        ev1_0.validation_id=?
+2026-03-25T06:07:01.657Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ev1_0.validation_id,
+        ev1_0.id,
+        ev1_0.champ,
+        ev1_0.code_erreur,
+        ev1_0.message,
+        ev1_0.niveau 
+    from
+        erreurs_validation ev1_0 
+    where
+        ev1_0.validation_id=?
+2026-03-25T06:07:01.658Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ev1_0.validation_id,
+        ev1_0.id,
+        ev1_0.champ,
+        ev1_0.code_erreur,
+        ev1_0.message,
+        ev1_0.niveau 
+    from
+        erreurs_validation ev1_0 
+    where
+        ev1_0.validation_id=?
+2026-03-25T06:07:01.659Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ev1_0.validation_id,
+        ev1_0.id,
+        ev1_0.champ,
+        ev1_0.code_erreur,
+        ev1_0.message,
+        ev1_0.niveau 
+    from
+        erreurs_validation ev1_0 
+    where
+        ev1_0.validation_id=?
+2026-03-25T06:07:01.660Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ev1_0.validation_id,
+        ev1_0.id,
+        ev1_0.champ,
+        ev1_0.code_erreur,
+        ev1_0.message,
+        ev1_0.niveau 
+    from
+        erreurs_validation ev1_0 
+    where
+        ev1_0.validation_id=?
+2026-03-25T06:07:01.663Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.lot_id,
+        a1_0.id,
+        a1_0.attribut,
+        a1_0.contexte,
+        a1_0.date_generation,
+        a1_0.date_traitement,
+        a1_0.fid,
+        a1_0.message,
+        a1_0.niveau,
+        a1_0.traitee,
+        a1_0.type,
+        a1_0.valeur_apres,
+        a1_0.valeur_avant,
+        a1_0.validation_id,
+        a1_0.variation 
+    from
+        alertes a1_0 
+    where
+        a1_0.lot_id=?
+2026-03-25T06:07:01.874Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T06:07:01.876Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T06:07:01.879Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.attribut,
+        a1_0.contexte,
+        a1_0.date_generation,
+        a1_0.date_traitement,
+        a1_0.fid,
+        a1_0.lot_id,
+        a1_0.message,
+        a1_0.niveau,
+        a1_0.traitee,
+        a1_0.type,
+        a1_0.valeur_apres,
+        a1_0.valeur_avant,
+        a1_0.validation_id,
+        a1_0.variation 
+    from
+        alertes a1_0 
+    where
+        not(a1_0.traitee)
+2026-03-25T06:07:01.882Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        l1_0.id,
+        l1_0.date_envoi,
+        l1_0.date_fin,
+        l1_0.reference_lot,
+        l1_0.source_id,
+        l1_0.statut,
+        l1_0.taille 
+    from
+        lots l1_0 
+    where
+        l1_0.id=?
+2026-03-25T06:07:01.883Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        db1_0.lot_id,
+        db1_0.id,
+        db1_0.date_reception,
+        db1_0.fid,
+        db1_0.hash,
+        db1_0.payload,
+        db1_0.statut 
+    from
+        donnees_brutes db1_0 
+    where
+        db1_0.lot_id=?
+2026-03-25T06:07:01.884Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        v1_0.id,
+        v1_0.champs_obligatoires_valides,
+        v1_0.date_validation,
+        v1_0.donnees_brutes_id,
+        v1_0.format_valide,
+        v1_0.rapport 
+    from
+        validations v1_0 
+    where
+        v1_0.donnees_brutes_id=?
+2026-03-25T06:07:01.885Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        v1_0.id,
+        v1_0.champs_obligatoires_valides,
+        v1_0.date_validation,
+        v1_0.donnees_brutes_id,
+        v1_0.format_valide,
+        v1_0.rapport 
+    from
+        validations v1_0 
+    where
+        v1_0.donnees_brutes_id=?
+2026-03-25T06:07:01.886Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        v1_0.id,
+        v1_0.champs_obligatoires_valides,
+        v1_0.date_validation,
+        v1_0.donnees_brutes_id,
+        v1_0.format_valide,
+        v1_0.rapport 
+    from
+        validations v1_0 
+    where
+        v1_0.donnees_brutes_id=?
+2026-03-25T06:07:01.887Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        v1_0.id,
+        v1_0.champs_obligatoires_valides,
+        v1_0.date_validation,
+        v1_0.donnees_brutes_id,
+        v1_0.format_valide,
+        v1_0.rapport 
+    from
+        validations v1_0 
+    where
+        v1_0.donnees_brutes_id=?
+2026-03-25T06:07:01.888Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        v1_0.id,
+        v1_0.champs_obligatoires_valides,
+        v1_0.date_validation,
+        v1_0.donnees_brutes_id,
+        v1_0.format_valide,
+        v1_0.rapport 
+    from
+        validations v1_0 
+    where
+        v1_0.donnees_brutes_id=?
+2026-03-25T06:07:01.889Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        ev1_0.validation_id,
+        ev1_0.id,
+        ev1_0.champ,
+        ev1_0.code_erreur,
+        ev1_0.message,
+        ev1_0.niveau 
+    from
+        erreurs_validation ev1_0 
+    where
+        ev1_0.validation_id=?
+2026-03-25T06:07:01.890Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        ev1_0.validation_id,
+        ev1_0.id,
+        ev1_0.champ,
+        ev1_0.code_erreur,
+        ev1_0.message,
+        ev1_0.niveau 
+    from
+        erreurs_validation ev1_0 
+    where
+        ev1_0.validation_id=?
+2026-03-25T06:07:01.891Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        ev1_0.validation_id,
+        ev1_0.id,
+        ev1_0.champ,
+        ev1_0.code_erreur,
+        ev1_0.message,
+        ev1_0.niveau 
+    from
+        erreurs_validation ev1_0 
+    where
+        ev1_0.validation_id=?
+2026-03-25T06:07:01.892Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        ev1_0.validation_id,
+        ev1_0.id,
+        ev1_0.champ,
+        ev1_0.code_erreur,
+        ev1_0.message,
+        ev1_0.niveau 
+    from
+        erreurs_validation ev1_0 
+    where
+        ev1_0.validation_id=?
+2026-03-25T06:07:01.893Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        ev1_0.validation_id,
+        ev1_0.id,
+        ev1_0.champ,
+        ev1_0.code_erreur,
+        ev1_0.message,
+        ev1_0.niveau 
+    from
+        erreurs_validation ev1_0 
+    where
+        ev1_0.validation_id=?
+2026-03-25T06:07:01.894Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        a1_0.lot_id,
+        a1_0.id,
+        a1_0.attribut,
+        a1_0.contexte,
+        a1_0.date_generation,
+        a1_0.date_traitement,
+        a1_0.fid,
+        a1_0.message,
+        a1_0.niveau,
+        a1_0.traitee,
+        a1_0.type,
+        a1_0.valeur_apres,
+        a1_0.valeur_avant,
+        a1_0.validation_id,
+        a1_0.variation 
+    from
+        alertes a1_0 
+    where
+        a1_0.lot_id=?
+2026-03-25T06:07:37.421Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T06:07:37.422Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T06:07:37.424Z  INFO 63494 --- [racs-backend] [nio-8080-exec-6] c.racs.service.SynchronisationService    : === Début du processus de synchronisation ===
+2026-03-25T06:07:37.425Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0 
+    where
+        s1_0.actif
+2026-03-25T06:07:37.426Z  INFO 63494 --- [racs-backend] [nio-8080-exec-6] c.racs.service.SynchronisationService    : Sources actives: 6
+2026-03-25T06:07:37.426Z  INFO 63494 --- [racs-backend] [nio-8080-exec-6] com.racs.service.ExternalFIDService      : Récupération des fIDs actifs depuis: http://localhost:8082/api/fids/actifs
+2026-03-25T06:07:37.439Z ERROR 63494 --- [racs-backend] [nio-8080-exec-6] com.racs.service.ExternalFIDService      : Erreur lors de la récupération des fIDs depuis RSU: I/O error on GET request for "http://localhost:8082/api/fids/actifs": Connexion refusée
+2026-03-25T06:07:37.439Z  INFO 63494 --- [racs-backend] [nio-8080-exec-6] c.racs.service.SynchronisationService    : fIDs actifs récupérés du RSU: 0
+2026-03-25T06:07:37.439Z  INFO 63494 --- [racs-backend] [nio-8080-exec-6] c.racs.service.SynchronisationService    : Nombre de lots de fIDs: 0
+2026-03-25T06:07:37.439Z  INFO 63494 --- [racs-backend] [nio-8080-exec-6] c.racs.service.SynchronisationService    : === Fin du processus de synchronisation ===
+2026-03-25T06:08:34.903Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T06:08:34.904Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T06:08:34.908Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.attribut,
+        a1_0.contexte,
+        a1_0.date_generation,
+        a1_0.date_traitement,
+        a1_0.fid,
+        a1_0.lot_id,
+        a1_0.message,
+        a1_0.niveau,
+        a1_0.traitee,
+        a1_0.type,
+        a1_0.valeur_apres,
+        a1_0.valeur_avant,
+        a1_0.validation_id,
+        a1_0.variation 
+    from
+        alertes a1_0 
+    where
+        a1_0.id=?
+2026-03-25T06:08:34.912Z  INFO 63494 --- [racs-backend] [nio-8080-exec-1] com.racs.service.AlerteService           : Alerte 7 traitée
+2026-03-25T06:08:34.941Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    update
+        alertes 
+    set
+        attribut=?,
+        contexte=?,
+        date_generation=?,
+        date_traitement=?,
+        fid=?,
+        lot_id=?,
+        message=?,
+        niveau=?,
+        traitee=?,
+        type=?,
+        valeur_apres=?,
+        valeur_avant=?,
+        validation_id=?,
+        variation=? 
+    where
+        id=?
+2026-03-25T08:11:35.050Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T08:11:35.056Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T08:11:35.074Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0 
+    where
+        s1_0.id=?
+2026-03-25T08:11:35.091Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    update
+        sources 
+    set
+        actif=?,
+        api_url=?,
+        champs_obligatoires=?,
+        date_creation=?,
+        nom=?,
+        type_objet=?,
+        types_champs=? 
+    where
+        id=?
+2026-03-25T08:11:35.258Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T08:11:35.261Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T08:11:35.266Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0
+2026-03-25T08:11:39.916Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T08:11:39.920Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T08:11:39.928Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0 
+    where
+        s1_0.id=?
+2026-03-25T08:11:39.933Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    update
+        sources 
+    set
+        actif=?,
+        api_url=?,
+        champs_obligatoires=?,
+        date_creation=?,
+        nom=?,
+        type_objet=?,
+        types_champs=? 
+    where
+        id=?
+2026-03-25T08:11:39.955Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T08:11:39.958Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T08:11:39.963Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0
+2026-03-25T08:11:43.766Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T08:11:43.769Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T08:11:43.774Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0 
+    where
+        s1_0.id=?
+2026-03-25T08:11:43.778Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    update
+        sources 
+    set
+        actif=?,
+        api_url=?,
+        champs_obligatoires=?,
+        date_creation=?,
+        nom=?,
+        type_objet=?,
+        types_champs=? 
+    where
+        id=?
+2026-03-25T08:11:43.832Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T08:11:43.835Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T08:11:43.840Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0
+2026-03-25T08:34:21.173Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T08:34:21.178Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T08:34:21.188Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0 
+    where
+        s1_0.id=?
+2026-03-25T08:34:21.196Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    update
+        sources 
+    set
+        actif=?,
+        api_url=?,
+        champs_obligatoires=?,
+        date_creation=?,
+        nom=?,
+        type_objet=?,
+        types_champs=? 
+    where
+        id=?
+2026-03-25T08:34:21.230Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T08:34:21.233Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T08:34:21.240Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0
+2026-03-25T08:39:27.516Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T08:39:27.520Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T08:39:27.524Z  INFO 63494 --- [racs-backend] [nio-8080-exec-1] c.racs.service.SynchronisationService    : === Début du processus de synchronisation ===
+2026-03-25T08:39:27.527Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0 
+    where
+        s1_0.actif
+2026-03-25T08:39:27.531Z  INFO 63494 --- [racs-backend] [nio-8080-exec-1] c.racs.service.SynchronisationService    : Sources actives: 4
+2026-03-25T08:39:27.531Z  INFO 63494 --- [racs-backend] [nio-8080-exec-1] com.racs.service.ExternalFIDService      : Récupération des fIDs actifs depuis: http://localhost:8082/api/fids/actifs
+2026-03-25T08:39:27.533Z ERROR 63494 --- [racs-backend] [nio-8080-exec-1] com.racs.service.ExternalFIDService      : Erreur lors de la récupération des fIDs depuis RSU: I/O error on GET request for "http://localhost:8082/api/fids/actifs": Connexion refusée
+2026-03-25T08:39:27.533Z  INFO 63494 --- [racs-backend] [nio-8080-exec-1] c.racs.service.SynchronisationService    : fIDs actifs récupérés du RSU: 0
+2026-03-25T08:39:27.533Z  INFO 63494 --- [racs-backend] [nio-8080-exec-1] c.racs.service.SynchronisationService    : Nombre de lots de fIDs: 0
+2026-03-25T08:39:27.533Z  INFO 63494 --- [racs-backend] [nio-8080-exec-1] c.racs.service.SynchronisationService    : === Fin du processus de synchronisation ===
+2026-03-25T10:48:09.089Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:48:09.090Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:48:10.019Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:48:10.022Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:48:10.023Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:48:10.025Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:48:10.025Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:48:10.027Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:48:10.029Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0
+2026-03-25T10:48:10.032Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.attribut,
+        a1_0.contexte,
+        a1_0.date_generation,
+        a1_0.date_traitement,
+        a1_0.fid,
+        a1_0.lot_id,
+        a1_0.message,
+        a1_0.niveau,
+        a1_0.traitee,
+        a1_0.type,
+        a1_0.valeur_apres,
+        a1_0.valeur_avant,
+        a1_0.validation_id,
+        a1_0.variation 
+    from
+        alertes a1_0 
+    where
+        not(a1_0.traitee)
+2026-03-25T10:48:10.040Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:48:10.042Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:48:10.048Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0
+2026-03-25T10:48:10.383Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:48:10.385Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:48:10.390Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.attribut,
+        a1_0.contexte,
+        a1_0.date_generation,
+        a1_0.date_traitement,
+        a1_0.fid,
+        a1_0.lot_id,
+        a1_0.message,
+        a1_0.niveau,
+        a1_0.traitee,
+        a1_0.type,
+        a1_0.valeur_apres,
+        a1_0.valeur_avant,
+        a1_0.validation_id,
+        a1_0.variation 
+    from
+        alertes a1_0 
+    where
+        not(a1_0.traitee)
+2026-03-25T10:48:42.571Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:48:42.575Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:48:43.637Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:48:43.640Z DEBUG 63494 --- [racs-backend] [io-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:48:43.643Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:48:43.643Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:48:43.646Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:48:43.646Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:48:43.651Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0
+2026-03-25T10:48:43.653Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.attribut,
+        a1_0.contexte,
+        a1_0.date_generation,
+        a1_0.date_traitement,
+        a1_0.fid,
+        a1_0.lot_id,
+        a1_0.message,
+        a1_0.niveau,
+        a1_0.traitee,
+        a1_0.type,
+        a1_0.valeur_apres,
+        a1_0.valeur_avant,
+        a1_0.validation_id,
+        a1_0.variation 
+    from
+        alertes a1_0 
+    where
+        not(a1_0.traitee)
+2026-03-25T10:48:43.663Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:48:43.664Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:48:43.668Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0
+2026-03-25T10:48:43.994Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:48:43.996Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:48:44.001Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.attribut,
+        a1_0.contexte,
+        a1_0.date_generation,
+        a1_0.date_traitement,
+        a1_0.fid,
+        a1_0.lot_id,
+        a1_0.message,
+        a1_0.niveau,
+        a1_0.traitee,
+        a1_0.type,
+        a1_0.valeur_apres,
+        a1_0.valeur_avant,
+        a1_0.validation_id,
+        a1_0.variation 
+    from
+        alertes a1_0 
+    where
+        not(a1_0.traitee)
+2026-03-25T10:52:12.344Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:52:12.347Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:52:44.061Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.date_creation,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-03-25T10:52:44.065Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2026-03-25T10:52:44.069Z  INFO 63494 --- [racs-backend] [nio-8080-exec-8] c.racs.service.SynchronisationService    : === Début du processus de synchronisation ===
+2026-03-25T10:52:44.070Z DEBUG 63494 --- [racs-backend] [nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.actif,
+        s1_0.api_url,
+        s1_0.champs_obligatoires,
+        s1_0.date_creation,
+        s1_0.nom,
+        s1_0.type_objet,
+        s1_0.types_champs 
+    from
+        sources s1_0 
+    where
+        s1_0.actif
+2026-03-25T10:52:44.073Z  INFO 63494 --- [racs-backend] [nio-8080-exec-8] c.racs.service.SynchronisationService    : Sources actives: 4
+2026-03-25T10:52:44.073Z  INFO 63494 --- [racs-backend] [nio-8080-exec-8] com.racs.service.ExternalFIDService      : Récupération des fIDs actifs depuis: http://localhost:8082/api/fids/actifs
+2026-03-25T10:52:44.075Z ERROR 63494 --- [racs-backend] [nio-8080-exec-8] com.racs.service.ExternalFIDService      : Erreur lors de la récupération des fIDs depuis RSU: I/O error on GET request for "http://localhost:8082/api/fids/actifs": Connexion refusée
+2026-03-25T10:52:44.075Z  INFO 63494 --- [racs-backend] [nio-8080-exec-8] c.racs.service.SynchronisationService    : fIDs actifs récupérés du RSU: 0
+2026-03-25T10:52:44.075Z  INFO 63494 --- [racs-backend] [nio-8080-exec-8] c.racs.service.SynchronisationService    : Nombre de lots de fIDs: 0
+2026-03-25T10:52:44.075Z  INFO 63494 --- [racs-backend] [nio-8080-exec-8] c.racs.service.SynchronisationService    : === Fin du processus de synchronisation ===
+2026-03-25T10:57:37.136Z  INFO 63494 --- [racs-backend] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-25T10:57:37.139Z  INFO 63494 --- [racs-backend] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-25T10:57:37.146Z  INFO 63494 --- [racs-backend] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
