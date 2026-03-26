@@ -3,8 +3,10 @@ package com.racs.controller;
 import com.racs.entity.*;
 import com.racs.service.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import java.util.List;
 
@@ -15,6 +17,12 @@ public class SynchronisationController {
 
     private final SynchronisationService synchronisationService;
     private final AlerteService alerteService;
+    private final SseService sseService;
+
+    @GetMapping(value = "/progress", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public SseEmitter subscribeProgress() {
+        return sseService.subscribe();
+    }
 
     @PostMapping("/demarrer")
     public ResponseEntity<String> demarrerSynchronisation() {

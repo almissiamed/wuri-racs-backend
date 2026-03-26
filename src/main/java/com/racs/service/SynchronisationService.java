@@ -28,6 +28,7 @@ public class SynchronisationService {
     private final DonneesSocioEcoService donneesSocioEcoService;
     private final AlerteService alerteService;
     private final ObjectMapper objectMapper;
+    private final SseService sseService;
 
     @Value("${external.sources.batch-size:100}")
     private int batchSize;
@@ -40,12 +41,15 @@ public class SynchronisationService {
     @Transactional
     public void demarrerSynchronisation() {
         log.info("=== Début du processus de synchronisation ===");
+        sseService.sendProgress("Démarrage de la synchronisation...", 0, 100, "STARTING");
         
         List<Source> sourcesActives = sourceRepository.findByActifTrue();
         log.info("Sources actives: {}", sourcesActives.size());
+        sseService.sendProgress("Récupération des sources actives: " + sourcesActives.size(), 5, 100, "FETCHING_SOURCES");
         
         List<FIDDTO> fidsActifsDTO = externalFIDService.getFIDsActifs();
         log.info("fIDs actifs récupérés du RSU: {}", fidsActifsDTO.size());
+        sseService.sendProgress("Récupération des fIDs actifs: " + fidsActifsDTO.size(), 10, 100, "FETCHING_FIDS");
         
         List<String> fidsList = fidsActifsDTO.stream()
                 .map(FIDDTO::getFid)
@@ -54,11 +58,23 @@ public class SynchronisationService {
         List<List<String>> lotsFIDs = decouperEnLots(fidsList, batchSize);
         log.info("Nombre de lots de fIDs: {}", lotsFIDs.size());
         
+        int totalOperations = lotsFIDs.size() * sourcesActives.size();
+        int completedOperations = 0;
+        int totalSuccess = 0;
+        int totalErrors = 0;
+        
         for (int i = 0; i < lotsFIDs.size(); i++) {
             List<String> lotFIDs = lotsFIDs.get(i);
-            traiterLot(lotFIDs, sourcesActives, i + 1);
+            int[] result = traiterLot(lotFIDs, sourcesActives, i + 1, lotsFIDs.size(), completedOperations, totalOperations);
+            totalSuccess += result[0];
+            totalErrors += result[1];
+            completedOperations += lotFIDs.size() * sourcesActives.size();
+            int progress = 10 + (int)((completedOperations * 90.0) / Math.max(totalOperations, 1));
+            sseService.sendProgress("Lot " + (i + 1) + "/" + lotsFIDs.size() + " terminé", progress, 100, "PROCESSING");
         }
         
+        sseService.sendProgress("Synchronisation terminée", 100, 100, "COMPLETED");
+        sseService.sendComplete("Synchronisation terminée: " + totalSuccess + " succès, " + totalErrors + " erreurs", totalSuccess, totalErrors);
         log.info("=== Fin du processus de synchronisation ===");
     }
 
@@ -71,7 +87,7 @@ public class SynchronisationService {
     }
 
     @Transactional
-    public void traiterLot(List<String> fidsLot, List<Source> sources, int numeroLot) {
+    public int[] traiterLot(List<String> fidsLot, List<Source> sources, int numeroLot, int totalLots, int completedOps, int totalOps) {
         log.info("Traitement du lot {} avec {} fIDs et {} sources", numeroLot, fidsLot.size(), sources.size());
         
         Lot lot = Lot.builder()
@@ -111,6 +127,7 @@ public class SynchronisationService {
         lotRepository.save(lot);
         
         log.info("Lot {} terminé: {} succès, {} erreurs", numeroLot, succesCount, erreurCount);
+        return new int[]{succesCount, erreurCount};
     }
 
     private List<Map<String, Object>> recupererDonneesSource(String nomSource, List<String> fids) {
