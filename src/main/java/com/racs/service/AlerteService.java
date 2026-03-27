@@ -43,6 +43,11 @@ public class AlerteService {
     public void genererAlerteVariation(String type, String niveau, String message, String fid, 
             String attribut, BigDecimal valeurAvant, BigDecimal valeurApres, BigDecimal variation, Lot lot) {
         
+        if (alerteRepository.existsByFidAndAttributAndType(fid, attribut, type)) {
+            log.debug("Alerte déjà existante pour fid={}, attribut={}, type={}", fid, attribut, type);
+            return;
+        }
+        
         Alerte alerte = Alerte.builder()
                 .type(type)
                 .niveau(niveau)

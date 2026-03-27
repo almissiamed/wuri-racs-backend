@@ -11,4 +11,5 @@ public interface AlerteRepository extends JpaRepository<Alerte, Integer> {
     List<Alerte> findByLot(Lot lot);
     List<Alerte> findByTraiteeFalse();
     List<Alerte> findByTypeAndTraiteeFalse(String type);
+    boolean existsByFidAndAttributAndType(String fid, String attribut, String type);
 }
